@@ -83,8 +83,6 @@ class PathFinder {
             if (path && path.length > 0) {
                 let next = path[path.length - 1];
                 tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
-            } else {
-                console.log("no path");
             }
         }
     }
