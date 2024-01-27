@@ -125,8 +125,8 @@ class PathFinder {
                 }
             }
             let node = this.closedList.containsPosition(goal);
-            if (node != null) {
-                let path = [];
+            if (node) {
+                let path: Array<Vector2> = [];
                 while (node.parent) {
                     path.push(node.position);
                     node = node.parent;
