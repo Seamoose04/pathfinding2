@@ -77,9 +77,9 @@ class PathFinder {
     updatePathfinding(target: Sprite) {
         this.origin = new Node(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row), null);
         this.origin.G = 0;
-        console.log(this.origin.position.x);
         if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 5) {
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
+            console.log(path[0].x);
             if (path) {
                 let next = path[path.length - 1];
                 tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
