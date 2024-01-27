@@ -18,4 +18,9 @@ namespace pathfinder {
     export function pathfind(pathfinder: PathFinder, target: Sprite) {
         pathfinder.updatePathfinding(target);
     }
+
+    //% block
+    export function pathfinderSpriteMoved(pathfinder: PathFinder) {
+        pathfinder.followTarget.setPosition(pathfinder.sprite.x, pathfinder.sprite.y);
+    }
 }
