@@ -79,7 +79,7 @@ class PathFinder {
         this.origin.G = 0;
         if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 5) {
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
-            console.log(path);
+            console.log(path.length);
             if (path) {
                 let next = path[path.length - 1];
                 tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
@@ -126,7 +126,7 @@ class PathFinder {
             }
             let node = this.closedList.containsPosition(goal);
             if (node) {
-                let path: Array<Vector2> = [];
+                let path = [];
                 while (node.parent) {
                     path.push(node.position);
                     node = node.parent;
