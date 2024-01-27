@@ -125,11 +125,11 @@ class PathFinder {
             }
             let node = this.closedList.containsPosition(goal);
             if (node) {
-                console.log("found!");
                 let path = [];
                 while (node.parent) {
                     path.push(node.position);
                     node = node.parent;
+                    console.log(node.position.x);
                 }
                 return path;
             }
