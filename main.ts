@@ -14,11 +14,11 @@ class Vector2 {
 class Node {
     position: Vector2;
     parent: Node;
-    G: int16;
+    G: Number;
     constructor(position: Vector2, parent: Node) {
         this.position = position;
         this.parent = parent;
-        if (this.parent) {
+        if (this.) {
             this.G = this.parent.G + 1;
         }
     }
@@ -77,12 +77,14 @@ class PathFinder {
     updatePathfinding(target: Sprite) {
         this.origin = new Node(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row), null);
         this.origin.G = 0;
-        console.log(this.origin.position.x);
         if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 5) {
-            console.log(target.tilemapLocation().col);
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
-            let next = path[path.length - 1];
-            tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
+            if (path) {
+                let next = path[path.length - 1];
+                tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
+            } else {
+                console.log("no path");
+            }
         }
     }
 
