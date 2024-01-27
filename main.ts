@@ -14,7 +14,7 @@ class Vector2 {
 class Node {
     position: Vector2;
     parent: Node;
-    G: Number;
+    G: number;
     constructor(position: Vector2, parent: Node) {
         this.position = position;
         this.parent = parent;
