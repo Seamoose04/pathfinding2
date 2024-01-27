@@ -10,7 +10,9 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "PathFinding.ts"
+        "PathFinding.ts",
+        "images.g.jres",
+        "images.g.ts"
     ],
     "testFiles": [
         "test.ts"
