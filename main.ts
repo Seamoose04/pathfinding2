@@ -80,7 +80,7 @@ class PathFinder {
         if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 5) {
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
             let next = path[path.length - 1];
-            console.log(next.x + " " + next.y);
+            console.log(path[0].x);
             tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
         }
     }
