@@ -5,8 +5,8 @@
 //% color=#6ea2ba icon="→"
 namespace pathfinder {
     //% block
-    export function createPathfinder(map: tiles.TileMapData): PathFinder {
-        return new PathFinder(map);
+    export function createPathfinder(map: tiles.TileMapData, followTargetIMG: Image): PathFinder {
+        return new PathFinder(map, followTargetIMG);
     }
 
     //% block
