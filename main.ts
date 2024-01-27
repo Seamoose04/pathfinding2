@@ -63,12 +63,15 @@ class PathFinder {
     openList: NodeList;
     closedList: NodeList;
 
-    constructor(map: tiles.TileMapData) {
+    constructor(map: tiles.TileMapData, followtargetIMG: Image) {
         this.map = map;
+        this.followTarget = sprites.create(followtargetIMG);
     }
 
     attachSprite(sprite: Sprite) {
         this.sprite = sprite;
+        this.followTarget.setPosition(sprite.x, sprite.y);
+        this.sprite.follow(this.followTarget);
     }
 
     updatePathfinding(target: Sprite) {
