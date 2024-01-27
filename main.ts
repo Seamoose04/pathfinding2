@@ -90,7 +90,6 @@ class PathFinder {
     }
 
     findPath(goal: Vector2) {
-        let showProcess = false;     //show Process
         let width = tileUtil.tilemapProperty(this.map, tileUtil.TilemapProperty.Columns);
         let height = tileUtil.tilemapProperty(this.map, tileUtil.TilemapProperty.Rows);
         this.openList = new NodeList();
@@ -126,6 +125,7 @@ class PathFinder {
             }
             let node = this.closedList.containsPosition(goal);
             if (node) {
+                console.log("found!");
                 let path = [];
                 while (node.parent) {
                     path.push(node.position);
