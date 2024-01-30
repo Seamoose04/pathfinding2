@@ -69,10 +69,10 @@ class PathFinder {
         this.followTarget.setFlag(SpriteFlag.Invisible, true);
     }
 
-    attachSprite(sprite: Sprite) {
+    attachSprite(sprite: Sprite, speed: number) {
         this.sprite = sprite;
         this.followTarget.setPosition(this.sprite.x, this.sprite.y);
-        this.sprite.follow(this.followTarget);
+        this.sprite.follow(this.followTarget, speed);
     }
 
     updatePathfinding(target: Sprite) {

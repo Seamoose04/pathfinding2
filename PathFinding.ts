@@ -10,8 +10,8 @@ namespace pathfinder {
     }
 
     //% block
-    export function attachSprite(pathfinder: PathFinder, sprite: Sprite): void {
-        pathfinder.attachSprite(sprite);
+    export function attachSprite(pathfinder: PathFinder, sprite: Sprite, speed: number): void {
+        pathfinder.attachSprite(sprite, speed);
     }
 
     //% block
