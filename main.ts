@@ -63,6 +63,8 @@ class PathFinder {
     openList: NodeList;
     closedList: NodeList;
 
+    speed: number;
+
     constructor(map: tiles.TileMapData) {
         this.map = map;
         this.followTarget = sprites.create(assets.image`targetIMG`);
@@ -72,13 +74,14 @@ class PathFinder {
     attachSprite(sprite: Sprite, speed: number) {
         this.sprite = sprite;
         this.followTarget.setPosition(this.sprite.x, this.sprite.y);
-        this.sprite.follow(this.followTarget, speed);
+        this.speed = speed;
+        this.sprite.follow(this.followTarget, this.speed);
     }
 
     updatePathfinding(target: Sprite) {
         this.origin = new Node(new Vector2(this.sprite.tilemapLocation().col, this.sprite.tilemapLocation().row), null);
         this.origin.G = 0;
-        if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 1) {
+        if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < this.speed / 20) {
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
             if (path && path.length > 0) {
                 let next = path[path.length - 1];
