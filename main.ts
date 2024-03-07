@@ -81,15 +81,15 @@ class PathFinder {
     updatePathfinding(target: Sprite) {
         this.origin = new Node(new Vector2(this.sprite.tilemapLocation().col, this.sprite.tilemapLocation().row), null);
         this.origin.G = 0;
-        if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < 10) {
+        if (Vector2.distance(new Vector2(this.followTarget.x, this.followTarget.y), new Vector2(this.sprite.x, this.sprite.y)) < this.speed/35) {
             let path = this.findPath(new Vector2(target.tilemapLocation().col, target.tilemapLocation().row));
             if (path && path.length > 0) {
                 let next = path[path.length - 1];
                 tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
-                if (Math.abs(this.sprite.x-this.followTarget.x) < 10) {
+                if (Math.abs(this.sprite.x - this.followTarget.x) < this.speed / 35) {
                     this.sprite.vx = 0;
                 }
-                if (Math.abs(this.sprite.y-this.followTarget.y) < 10) {
+                if (Math.abs(this.sprite.y - this.followTarget.y) < this.speed / 35) {
                     this.sprite.vy = 0;
                 }
             }
