@@ -86,10 +86,10 @@ class PathFinder {
             if (path && path.length > 0) {
                 let next = path[path.length - 1];
                 tiles.placeOnTile(this.followTarget, tiles.getTileLocation(next.x, next.y));
-                if (this.sprite.x == this.followTarget.x) {
+                if (Math.abs(this.sprite.x-this.followTarget.x) < 1) {
                     this.sprite.vx = 0;
                 }
-                if (this.sprite.y == this.followTarget.y) {
+                if (Math.abs(this.sprite.y-this.followTarget.y) < 1) {
                     this.sprite.vy = 0;
                 }
             }
