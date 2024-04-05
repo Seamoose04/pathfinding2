@@ -69,6 +69,7 @@ class PathFinder {
         this.map = map;
         this.followTarget = sprites.create(assets.image`targetIMG`);
         this.followTarget.setFlag(SpriteFlag.Invisible, true);
+        this.followTarget.scale = 0.001;
     }
 
     attachSprite(sprite: Sprite, speed: number) {
